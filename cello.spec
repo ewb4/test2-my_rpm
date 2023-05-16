@@ -4,8 +4,8 @@ Release:        1%{?dist}
 Summary:        Hello World example implemented in C
 
 License:        MIT
-URL:            https://github.com/naveenrajm7/%{name}
-Source0:        https://github.com/naveenrajm7/%{name}/%{name}-%{version}.tar.gz
+URL:            https://github.com/ewb4/test2-my_rpm
+Source0:        https://github.com/ewb4/test2-my_rpm/archive/refs/tags/v%{version}.tar.gz
 
 BuildRequires:  gcc
 BuildRequires:  make
@@ -32,5 +32,8 @@ make %{?_smp_mflags}
 
 
 %changelog
+* Mon May 15 2023 ewb4
+- Update links to point to release in github.
+
 * Wed Mar 25 2020 naveen
 - first cello package
