@@ -41,7 +41,9 @@ jobs:
         - name: download the new release
           run: |
             pwd
-            ls -lR
+            ls -laR
+            /usr/bin/rpmdev-setuptree
+            spectool -g -R cello.spec
 
             
         - name: build RPM package
