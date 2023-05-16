@@ -21,6 +21,8 @@ jobs:
         - name: Checkout code
           uses: actions/checkout@master
 
+        # need to verify spec and tag version match
+
         - name: Create Release
           id: create_release
           uses: actions/create-release@latest
@@ -35,6 +37,12 @@ jobs:
                 - Upload Source RPM
               draft: false
               prerelease: false
+
+        - name: download the new release
+          run: |
+            pwd
+            ls -lR
+
             
         - name: build RPM package
           id: rpm_build
