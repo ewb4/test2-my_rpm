@@ -42,7 +42,7 @@ jobs:
           run: |
             pwd
             ls -lR
-            yum install rpmdevtools -y
+            type rpm
             /bin/rpmdev-setuptree
             spectool -g -R cello.spec
 
