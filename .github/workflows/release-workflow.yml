@@ -42,7 +42,7 @@ jobs:
           run: |
             pwd
             ls -lR
-            type dnf
+            type yum || exit 0
             echo rpmdevtools
             echo /bin/rpmdev-setuptree
             echo spectool -g -R cello.spec
