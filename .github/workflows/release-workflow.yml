@@ -54,13 +54,21 @@ jobs:
           with:
               spec_file: "cello.spec"
 
-        - name: Upload artifact
+        - name: Upload SRPM artifact
           uses: actions/upload-artifact@v1.0.0
           with:
               # Artifact name
               name: Source RPM
               # Directory containing files to upload
               path: ${{steps.rpm_build.outputs.source_rpm_path}}
+
+        - name: Upload RPM artifact
+          uses: actions/upload-artifact@v1.0.0
+          with:
+              # Artifact name
+              name: Binary RPM
+              # Directory containing files to upload
+              path: ${{steps.rpm_build.outputs.rpm_dir_path}}
             
         - name: Upload Release Asset
           id: upload-release-asset 
