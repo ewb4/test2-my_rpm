@@ -44,7 +44,11 @@ jobs:
             ls -l /etc/*release*
             pwd
             ls -lR
+            echo "GITHUB_SERVER_URL: ${GITHUB_SERVER_URL}"
+            echo "GITHUB_REPOSITORY_OWNER: ${GITHUB_REPOSITORY_OWNER}"
+            echo "GITHUB_REPOSITORY: ${GITHUB_REPOSITORY}"
             echo yum
+            env | grep -vi secret
             echo rpmdevtools
             echo /bin/rpmdev-setuptree
             echo spectool -g -R cello.spec
