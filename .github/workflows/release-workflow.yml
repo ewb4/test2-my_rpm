@@ -40,6 +40,12 @@ jobs:
               draft: false
               prerelease: false
 
+        - name: Download tarball archive
+          uses: carlosperate/download-file-action@v2.0.0
+          id: download-tarball
+          with:
+              file-url: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY_OWNER}/${REPO_NAME}/archive/v${{ env.RELEASE_VERSION }}.tar.gz
+
         - name: debug bits in workflow state
           run: |
             uname -a
@@ -50,11 +56,18 @@ jobs:
             echo "GITHUB_REPOSITORY_OWNER: ${GITHUB_REPOSITORY_OWNER}"
             echo "GITHUB_REPOSITORY: ${GITHUB_REPOSITORY}"
             echo yum
-            env | grep -vi secret
+            echo "${{ steps.download-tarball.outputs.file-path }}"
             echo rpmdevtools
             echo /bin/rpmdev-setuptree
             echo spectool -g -R cello.spec
             
+        - name: Upload tarball as release asset
+          uses: alexellis/upload-assets@0.4.0
+          env:
+              GITHUB_TOKEN: ${{ github.token }}
+          with:
+              asset_paths: '["${{ steps.download-tarball.outputs.file-path }}"]'
+
         - name: build RPM package
           id: rpm_build
           uses: naveenrajm7/rpmbuild@master
