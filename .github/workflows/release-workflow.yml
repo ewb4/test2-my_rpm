@@ -38,15 +38,16 @@ jobs:
               draft: false
               prerelease: false
 
-        - name: download the new release
+        - name: debug bits in workflow state
           run: |
+            uname -a
+            ls -l /etc/*release*
             pwd
             ls -lR
-            type yum || exit 0
+            echo yum
             echo rpmdevtools
             echo /bin/rpmdev-setuptree
             echo spectool -g -R cello.spec
-
             
         - name: build RPM package
           id: rpm_build
