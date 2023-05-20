@@ -44,7 +44,7 @@ jobs:
           uses: carlosperate/download-file-action@v2.0.0
           id: download-tarball
           with:
-              file-url: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY_OWNER}/${REPO_NAME}/archive/v${{ env.RELEASE_VERSION }}.tar.gz
+              file-url: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY_OWNER}/${REPO_NAME}/archive/${{ github.ref }}.tar.gz
               file-name: cello-${{ env.RELEASE_VERSION }}.tar.gz
 
         - name: debug bits in workflow state
