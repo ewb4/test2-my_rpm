@@ -5,7 +5,7 @@ Summary:        Hello World example implemented in C
 
 License:        MIT
 URL:            https://github.com/ewb4/test2-my_rpm
-Source0:        https://github.com/ewb4/test2-my_rpm/cello.tar.gz
+Source0:        https://github.com/ewb4/test2-my_rpm/releases/download/v%{version}/%{name}-%{version}.tar.gz
 
 BuildRequires:  gcc
 BuildRequires:  make
